@@ -1,42 +1,70 @@
 # Demand Forecasting System for FMCG Retailer
-## Overview
-This project showcases an end-to-end demand forecasting solution built to address the inventory management challenges faced by a large offline retailer selling Fast Moving Consumer Goods (FMCGs). Leveraging advanced machine learning techniques (XGBoost) and historical sales data, this system accurately predicts future demand for each product category, ensuring optimal inventory levels and reducing the risk of overstocking and understocking. This project serves as a demonstration of expertise in data manipulation, machine learning, and web deployment.
-To experience the project in the form of an engaging story, visit our Medium publication [here](https://medium.com/tech-tales-business-trails/the-retail-crystal-ball-building-a-forecasting-system-to-see-the-future-of-sales-f533272995ac)
+
+## Project Overview
+
+This project presents demand forecasting system developed for a large offline **FMCG (Fast Moving Consumer Goods)** retailer. Using machine learning techniques and historical sales data, the system predicts weekly product demand to optimize inventory levels, reduce waste, and prevent lost sales.
+
+Built following best practices in data engineering, machine learning, and MLOps, the solution includes data ingestion, feature engineering, model training, and an interactive Streamlit app hosted on AWS.
 
 
-## Problem Statement
-The retailer has been experiencing significant business losses due to inefficient inventory management, resulting in both overstocking and understocking of products. The key objective is to optimize inventory by predicting weekly demand for different product categories, enabling better alignment of supply with actual demand. This, in turn, will reduce storage costs, prevent lost sales, and improve overall profitability.
+## Business Problem
 
-## Project Methodology
-This project follows the CRISP-DM (Cross Industry Standard Process for Data Mining) framework, ensuring a structured approach to address the business problem through the following phases:
-* **Business Understanding:**
-Defined the business objectives by identifying key pain points related to inventory management for a large FMCG retailer, focusing on optimizing stock levels to prevent overstocking and understocking.
+The retailer struggled with **inventory imbalances**—either ordering too much or too little stock across product categories. This led to:
 
-* **Data Understanding & Integration:**
-Utilized **BigQuery** as the primary data storage solution and integrated it with Google Colab for seamless data handling using both **SQL** and **Python**. This setup enabled efficient data processing and analysis, allowing for comprehensive insights through a combination of SQL queries and Python libraries.
+* **Lost sales** from stockouts during periods of high demand
+* **Excess storage costs** due to unsold inventory
+* **Poor resource planning** that impacted profitability and customer satisfaction
 
-* **Data Preparation:**
-Conducted Exploratory Data Analysis (**EDA**) using both SQL and Python. Applied **time-series feature engineering** techniques, such as lags and moving averages, to capture seasonality and trends in sales data.
+To address these issues, the business needed a system that could **accurately forecast product demand** on a weekly basis, enabling smarter replenishment strategies and reducing waste across the supply chain.
 
-* **Modeling & Evaluation:**
-Built a robust time-series demand forecasting model using XGBoost, selected for its efficiency in handling structured data. The model was evaluated using Root Mean Squared Logarithmic Error (RMSLE), a metric particularly suitable for inventory forecasting where relative error matters more than absolute differences.
 
-* **Deployment:**
-Developed an interactive web application using **AWS** and **Streamlit**, enabling stakeholders to view predicted demand for each product category in **real-time**. This deployment completes the full cycle of our project. you can check the app [here](http://3.120.159.173:8501/)
+## ML Problem
+
+Accurately forecast **weekly product demand** at the store level using historical sales, promotional activity, and store characteristics. The model must account for seasonality, pricing, and category-level trends to support smarter stock planning.
+
 
 ## Data Sources
-Three interconnected datasets were used in this project, providing a comprehensive view of sales, product characteristics, and store-level attributes:
 
-* **Product Data**: Product-specific information (UPC, description, manufacturer, category, size).
-* **Sales Data**: Weekly sales figures at the store level, promotions, discounts, units sold, and pricing.
-* **Store Data**: Store-level attributes including location, size, and market segmentation.
-  
-**The datasets were integrated using SQL in BigQuery, enabling a unified view for analysis and modeling**
+To build a comprehensive modeling pipeline, we integrated the following datasets:
 
-### Future Directions
-Planned enhancements include implementing real-time demand tracking using Airflow and BigQuery and exploring advanced deep learning techniques, such as LSTMs, for capturing long-term dependencies.
+- **Product Data**: SKU, category, brand, size  
+- **Sales Data**: Weekly sales units, prices, promotions  
+- **Store Data**: Location, size, and segmentation details
 
-  ## Contact
-If you have any questions or would like to discuss this project further, feel free to reach out!
-* [LinkedIn](https://www.linkedin.com/in/hadeel-als-0a23702a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app ) 
-* [Email](alsadonhadeel@gmail.com) 
+> All data was joined and processed using **SQL in Google BigQuery**, enabling a unified time-series dataset for modeling.
+
+
+## Project Methodology
+
+The forecasting system was developed following the **CRISP-DM** framework and structured into five stages:
+
+
+### 1. Data Pipeline
+
+- Connected to BigQuery using SQL and Python (via Google Colab)  
+- Cleaned and merged product, store, and sales datasets  
+- Performed exploratory analysis to identify patterns and outliers  
+- Created time-series features such as **lags**, **rolling means**, and **promotional flags**
+
+### 2. Modeling Pipeline
+
+- Trained an **XGBoost regression model** for demand forecasting  
+- Target: weekly demand at the product-store level  
+- Features: lag-based variables, pricing data, temporal effects  
+- Evaluation: **RMSLE (Root Mean Squared Log Error)** to penalize large relative errors
+
+### 3. Deployment & App Interface
+
+- Built an **interactive Streamlit web application**, deployed on **AWS EC2**  
+- Users can select product categories and stores to view real-time demand forecasts  
+- Designed for usability by planners and business stakeholders
+
+🔗 [Launch the App](http://3.120.159.173:8501/)
+
+
+## Contact
+
+If you have any questions or would like to collaborate, feel free to reach out!
+
+-  [LinkedIn](https://www.linkedin.com/in/hadeel-als)  
+-  [alsaadonhadeel@gmail.com](mailto:alsaadonhadeel@gmail.com)
