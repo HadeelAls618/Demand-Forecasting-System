@@ -1,75 +1,90 @@
-# Demand Forecasting System for FMCG Retailer
+
+#  Demand Forecasting & Analysis for FMCG Retailer
 
 ## Project Overview
 
-This project presents demand forecasting system developed for a large offline **FMCG (Fast Moving Consumer Goods)** retailer. Using machine learning techniques and historical sales data, the system predicts weekly product demand to optimize inventory levels, reduce waste, and prevent lost sales.
+This project presents a **data science and forecasting solution** developed for a large offline **FMCG (Fast-Moving Consumer Goods)** retailer. The goal was to extract **business insights** from sales, product, and store data to guide **smarter inventory decisions** and reduce revenue loss.
 
-Built following best practices in data engineering, machine learning, and MLOps, the solution includes data ingestion, feature engineering, model training, and an interactive Streamlit app hosted on AWS.
+By combining **exploratory data analysis (EDA)**, **statistical methods**, and a machine learning-based **demand forecasting model**, the system helps business planners understand trends, identify bottlenecks, and anticipate next week’s demand for better stock allocation.
 
 
 ## Business Problem
 
-The retailer struggled with **inventory imbalances**—either ordering too much or too little stock across product categories. This led to:
+The retailer faced frequent **inventory misalignments**, leading to:
 
-* **Lost sales** from stockouts during periods of high demand
-* **Excess storage costs** due to unsold inventory
-* **Poor resource planning** that impacted profitability and customer satisfaction
+* Lost revenue from stockouts during high demand periods
+* Overstocking, increasing storage and capital costs
+* Poor alignment between demand, promotions, and resource planning
 
-To address these issues, the business needed a system that could **accurately forecast product demand** on a weekly basis, enabling smarter replenishment strategies and reducing waste across the supply chain.
-
-
-## ML Problem
-
-Accurately forecast **weekly product demand** at the store level using historical sales, promotional activity, and store characteristics. The model must account for seasonality, pricing, and category-level trends to support smarter stock planning.
+The goal: develop a solution that uses **data-driven forecasting and analysis** to guide weekly inventory replenishment and improve decision-making across store operations.
 
 
-## Data Sources
+## Data Science Objective
 
-To build a comprehensive modeling pipeline, we integrated the following datasets:
+Predict **weekly product demand** at the store-category level using historical data and uncover **patterns** that influence sales — such as promotions, seasonality, and pricing.
 
-- **Product Data**: SKU, category, brand, size  
-- **Sales Data**: Weekly sales units, prices, promotions  
-- **Store Data**: Location, size, and segmentation details
+This insight helps:
 
-> All data was joined and processed using **SQL in Google BigQuery**, enabling a unified time-series dataset for modeling.
+* Reduce inventory waste
+* Improve customer satisfaction
+* Enable efficient workforce and shelf-space planning
+
+##  Data Sources
+
+The project integrates three key datasets:
+
+* **Sales Data** – Weekly sales volume, discounts, pricing, promotions
+* **Product Data** – Category, brand, size, UPC
+* **Store Data** – Location, store type, and segment
+
+➡All data was queried and joined using **SQL in BigQuery**, and processed in **Python via Colab** for analysis and modeling.
 
 
-## Project Methodology
+##  Project Workflow
 
-The forecasting system was developed following the **CRISP-DM** framework and structured into five stages:
+The project follows the **CRISP-DM framework**, structured into the following phases:
+
+### 1. Data Collection & Exploration
+
+* Connected to **BigQuery** and extracted data using SQL
+* Cleaned, merged, and reshaped datasets
+* Performed **EDA** to identify seasonal patterns, promotion effects, and pricing trends
+* Used statistics and visualizations to uncover category-level sales dynamics
+
+### 2.  Predictive Modeling
+
+* Engineered features such as:
+
+  * **Lag values** (previous week’s sales)
+  * **Rolling averages**
+  * **Calendar effects** (week, month, etc.)
+  * **Promotional flags**
+* Trained an **XGBoost regressor** on the structured time-series dataset
+* Evaluated performance using **RMSLE** — suitable for handling forecast errors in low-volume sales
+
+### 3. Forecasting App (Streamlit)
+
+* Built a **Streamlit dashboard**, hosted on **AWS EC2**, for end-user access
+* Users can:
+
+  * Select product categories
+  * View predicted demand for the upcoming week
+  * Compare recent performance across stores
 
 
-### 1. Data Pipeline
 
-- Connected to BigQuery using SQL and Python (via Google Colab)  
-- Cleaned and merged product, store, and sales datasets  
-- Performed exploratory analysis to identify patterns and outliers  
-- Created time-series features such as **lags**, **rolling means**, and **promotional flags**
+## Model Prediction Visualization
 
-### 2. Modeling Pipeline
-
-- Trained an **XGBoost regression model** for demand forecasting  
-- Target: weekly demand at the product-store level  
-- Features: lag-based variables, pricing data, temporal effects  
-- Evaluation: **RMSLE (Root Mean Squared Log Error)** to penalize large relative errors
-
-### 3. Deployment & App Interface
-
-- Built an **interactive Streamlit web application**, deployed on **AWS EC2**  
-- Users can select product categories and stores to view real-time demand forecasts  
-- Designed for usability by planners and business stakeholders
-  
-###  Model Prediction Visualization
-
-The chart below illustrates the model’s ability to forecast product demand over time. It shows:
-
-This visualization helps stakeholders evaluate how well the model captures real-world demand fluctuations.
+Below is a visualization of the model's performance on historical sales data. It highlights how well the model captures weekly demand shifts across training, validation, and forecasted periods:
 
 ![Model Prediction](Model_Biulding/Model_evaluation/Model_prediction.png)
 
+
+
 ## Contact
 
-If you have any questions or would like to collaborate, feel free to reach out!
+Feel free to connect or collaborate:
 
--  [LinkedIn](https://www.linkedin.com/in/hadeel-als)  
--  [alsaadonhadeel@gmail.com](mailto:alsaadonhadeel@gmail.com)
+* [LinkedIn](https://www.linkedin.com/in/hadeel-als)
+* [Email](mailto:alsaadonhadeel@gmail.com)
+
