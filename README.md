@@ -1,90 +1,96 @@
 
+
 #  Demand Forecasting & Analysis for FMCG Retailer
 
 ## Project Overview
 
-This project presents a **data science and forecasting solution** developed for a large offline **FMCG (Fast-Moving Consumer Goods)** retailer. The goal was to extract **business insights** from sales, product, and store data to guide **smarter inventory decisions** and reduce revenue loss.
+This project presents a **data science and forecasting solution** developed for a large offline **FMCG (Fast-Moving Consumer Goods)** retailer. The main objective is to extract **business insights** from sales, product, and store data to guide **smarter inventory planning** and reduce lost revenue.
 
-By combining **exploratory data analysis (EDA)**, **statistical methods**, and a machine learning-based **demand forecasting model**, the system helps business planners understand trends, identify bottlenecks, and anticipate next week’s demand for better stock allocation.
+The project follows the **CRISP-DM framework** (Cross Industry Standard Process for Data Mining), ensuring a structured and repeatable approach to insight generation and forecasting.
+
+<p align="center">
+  <img src="Deployment/StreamlitApp/framework.jpg" alt="CRISP-DM Framework" width="650"/>
+</p>
+
+Using a combination of **EDA, feature engineering, statistical methods**, and a machine learning-based **forecasting model**, we help business planners understand demand drivers, optimize stock allocation, and anticipate next week’s sales.
+
+An interactive **Streamlit dashboard**, deployed on AWS EC2, provides easy access to predictions and trends for decision-makers.
 
 
-## Business Problem
+
+##  1. Business Understanding
 
 The retailer faced frequent **inventory misalignments**, leading to:
 
-* Lost revenue from stockouts during high demand periods
-* Overstocking, increasing storage and capital costs
-* Poor alignment between demand, promotions, and resource planning
+*  Lost sales during unexpected demand peaks
+* Overstocking and storage waste
+*  Inefficient replenishment cycles and resource usage
 
-The goal: develop a solution that uses **data-driven forecasting and analysis** to guide weekly inventory replenishment and improve decision-making across store operations.
-
-
-## Data Science Objective
-
-Predict **weekly product demand** at the store-category level using historical data and uncover **patterns** that influence sales — such as promotions, seasonality, and pricing.
-
-This insight helps:
-
-* Reduce inventory waste
-* Improve customer satisfaction
-* Enable efficient workforce and shelf-space planning
-
-##  Data Sources
-
-The project integrates three key datasets:
-
-* **Sales Data** – Weekly sales volume, discounts, pricing, promotions
-* **Product Data** – Category, brand, size, UPC
-* **Store Data** – Location, store type, and segment
-
-➡All data was queried and joined using **SQL in BigQuery**, and processed in **Python via Colab** for analysis and modeling.
+The goal was to create a **data-driven solution** that forecasts weekly product demand and reveals the patterns behind sales fluctuations—empowering planners to make better stocking and resource decisions.
 
 
-##  Project Workflow
+##  2. Data Understanding
 
-The project follows the **CRISP-DM framework**, structured into the following phases:
+The project integrates and explores three primary datasets:
 
-### 1. Data Collection & Exploration
+* **Sales Data**: Weekly sales, prices, discounts, and promotions
+* **Product Data**: Category, size, UPC, and brand info
+* **Store Data**: Store ID, location, type, and segmentation
 
-* Connected to **BigQuery** and extracted data using SQL
-* Cleaned, merged, and reshaped datasets
-* Performed **EDA** to identify seasonal patterns, promotion effects, and pricing trends
-* Used statistics and visualizations to uncover category-level sales dynamics
+➡ All data was queried using **SQL in Google BigQuery** and analyzed in **Python (Colab environment)**.
 
-### 2.  Predictive Modeling
+Exploratory Data Analysis (EDA) was performed to:
 
-* Engineered features such as:
-
-  * **Lag values** (previous week’s sales)
-  * **Rolling averages**
-  * **Calendar effects** (week, month, etc.)
-  * **Promotional flags**
-* Trained an **XGBoost regressor** on the structured time-series dataset
-* Evaluated performance using **RMSLE** — suitable for handling forecast errors in low-volume sales
-
-### 3. Forecasting App (Streamlit)
-
-* Built a **Streamlit dashboard**, hosted on **AWS EC2**, for end-user access
-* Users can:
-
-  * Select product categories
-  * View predicted demand for the upcoming week
-  * Compare recent performance across stores
+* Identify seasonal demand patterns
+* Understand category and store-level trends
+* Examine the effects of promotions and pricing on sales
 
 
 
-## Model Prediction Visualization
+##  3. Data Preparation
 
-Below is a visualization of the model's performance on historical sales data. It highlights how well the model captures weekly demand shifts across training, validation, and forecasted periods:
+After data cleaning and schema alignment, key transformations included:
+
+* Time-series structuring by store and category
+* Lag features (previous week’s sales)
+* Rolling averages to capture recent trends
+* Calendar-based features (e.g., week of year, month)
+* Promotion flags and price normalization
+
+---
+
+##  4. Modeling
+
+The goal was to build a robust weekly forecasting model:
+
+* **Model Used**: XGBoost Regressor
+* **Target**: Weekly units sold per product-store-category
+* **Features**: Lag values, pricing, promotion indicators, temporal patterns
+* **Train/Valid Split**: Time-aware
+* **Evaluation Metric**: RMSLE (Root Mean Squared Logarithmic Error)
+
+---
+
+##  5. Evaluation
+
+Model performance was visualized over the train, validation, and predicted windows. This helped verify how accurately the model captures real-world fluctuations in demand:
 
 ![Model Prediction](Model_Biulding/Model_evaluation/Model_prediction.png)
 
 
+## 6. Deployment
 
-## Contact
+An interactive **Streamlit dashboard** was developed and deployed on **AWS EC2**, enabling:
 
-Feel free to connect or collaborate:
+* Selection of product categories and store segments
+* Visualization of predicted weekly demand
+* Comparison of performance across time and location
+
+The app helps planners and stakeholders interact with the model’s output in an intuitive, business-friendly format.
+
+
+
+## 📬 Contact
 
 * [LinkedIn](https://www.linkedin.com/in/hadeel-als)
 * [Email](mailto:alsaadonhadeel@gmail.com)
-
