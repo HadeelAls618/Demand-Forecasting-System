@@ -8,13 +8,9 @@ This project presents a **data science and forecasting solution** developed for 
 
 The project follows the **CRISP-DM framework** (Cross Industry Standard Process for Data Mining), ensuring a structured and repeatable approach to insight generation and forecasting.
 
-<p align="center">
-  <img src="Deployment/StreamlitApp/framework.jpg" alt="CRISP-DM Framework" width="650"/>
-</p>
+![CRISP-DM framework](Deployment/StreamlitApp/framework.jpg)
 
 Using a combination of **EDA, feature engineering, statistical methods**, and a machine learning-based **forecasting model**, we help business planners understand demand drivers, optimize stock allocation, and anticipate next week’s sales.
-
-An interactive **Streamlit dashboard**, deployed on AWS EC2, provides easy access to predictions and trends for decision-makers.
 
 
 
