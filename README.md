@@ -59,8 +59,6 @@ The forecasting system was developed following the **CRISP-DM** framework and st
 - Users can select product categories and stores to view real-time demand forecasts  
 - Designed for usability by planners and business stakeholders
 
-🔗 [Launch the App](http://3.120.159.173:8501/)
-
 
 ## Contact
 
