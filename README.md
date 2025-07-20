@@ -57,7 +57,6 @@ After data cleaning and schema alignment, key transformations included:
 * Calendar-based features (e.g., week of year, month)
 * Promotion flags and price normalization
 
----
 
 ##  4. Modeling
 
@@ -68,8 +67,6 @@ The goal was to build a robust weekly forecasting model:
 * **Features**: Lag values, pricing, promotion indicators, temporal patterns
 * **Train/Valid Split**: Time-aware
 * **Evaluation Metric**: RMSLE (Root Mean Squared Logarithmic Error)
-
----
 
 ##  5. Evaluation
 
