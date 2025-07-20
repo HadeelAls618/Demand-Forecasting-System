@@ -58,7 +58,14 @@ The forecasting system was developed following the **CRISP-DM** framework and st
 - Built an **interactive Streamlit web application**, deployed on **AWS EC2**  
 - Users can select product categories and stores to view real-time demand forecasts  
 - Designed for usability by planners and business stakeholders
+  
+###  Model Prediction Visualization
 
+The chart below illustrates the model’s ability to forecast product demand over time. It shows:
+
+This visualization helps stakeholders evaluate how well the model captures real-world demand fluctuations.
+
+![Model Prediction](Model_Biulding/Model_evaluation/Model_prediction.png)
 
 ## Contact
 
