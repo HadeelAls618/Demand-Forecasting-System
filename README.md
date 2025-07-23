@@ -83,7 +83,7 @@ The app helps planners and stakeholders interact with the model’s output in an
 
 
 
-## 📬 Contact
+## Contact
 
 * [LinkedIn](https://www.linkedin.com/in/hadeel-als)
 * [Email](mailto:alsaadonhadeel@gmail.com)
