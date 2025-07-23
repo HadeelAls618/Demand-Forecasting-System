@@ -28,7 +28,3 @@ def main(data):
     x_train, x_test, y_train, y_test = split_data(weekly_data, target_column='UNITS')
     model = train_xgb_model(x_train, y_train)
     return model, x_test, y_test
-
-# Example usage:
-# data = pd.read_csv('path_to_data.csv')  # Load your dataset here
-# trained_model, x_test, y_test = main(data)
