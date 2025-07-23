@@ -8,7 +8,7 @@ This project presents a **data science and forecasting solution** developed for 
 
 The project follows the **CRISP-DM framework** (Cross Industry Standard Process for Data Mining), ensuring a structured and repeatable approach to insight generation and forecasting.
 
-![CRISP-DM framework](app/Framework2.jpg)
+![CRISP-DM framework](images/Framework2.jpg)
 
 Using a combination of **EDA, feature engineering, statistical methods**, and a machine learning-based **forecasting model**, we help business planners understand demand drivers, optimize stock allocation, and anticipate next week’s sales.
 
@@ -68,7 +68,7 @@ The goal was to build a robust weekly forecasting model:
 
 Model performance was visualized over the train, validation, and predicted windows. This helped verify how accurately the model captures real-world fluctuations in demand:
 
-![Model Prediction](app/Model_prediction.png)
+![Model Prediction](images/Model_prediction.png)
 
 
 ## 6. Deployment
