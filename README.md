@@ -33,7 +33,7 @@ The project integrates and explores three primary datasets:
 * **Product Data**: Category, size, UPC, and brand info
 * **Store Data**: Store ID, location, type, and segmentation
 
-➡ All data was queried using **SQL in Google BigQuery** and analyzed in **Python (Colab environment)**.
+ All data was queried using **SQL in Google BigQuery** and analyzed in **Python (Colab environment)**.
 
 Exploratory Data Analysis (EDA) was performed to:
 
